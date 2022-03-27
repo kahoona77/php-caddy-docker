@@ -1,6 +1,5 @@
 ARG PHP_VERSION=8.1
 ARG CADDY_VERSION=2
-ARG APCU_VERSION=5.1.21
 
 # "php" stage
 FROM php:${PHP_VERSION}-fpm-alpine
@@ -15,6 +14,7 @@ RUN apk add --no-cache \
 		caddy \
 	;
 
+ARG APCU_VERSION=5.1.21
 RUN set -eux; \
 	apk add --no-cache --virtual .build-deps \
 		$PHPIZE_DEPS \
